@@ -13,13 +13,12 @@ namespace Senai.Gufi.WebApi
 
         public void Atualizar(int id, TipoEvento tipoEventoAtualizado)
         {
-            TipoEvento eventoBuscado = ctx.TipoEvento.Find(id);
+            TipoEvento tipoEventoBuscado = ctx.TipoEvento.Find(id);
 
-            eventoBuscado.Evento = tipoEventoAtualizado.Evento;
-            eventoBuscado.IdTipoEvento = tipoEventoAtualizado.IdTipoEvento;
-            eventoBuscado.TituloTipoEvento = tipoEventoAtualizado.TituloTipoEvento;
+            tipoEventoBuscado.Evento = tipoEventoAtualizado.Evento;
+            tipoEventoBuscado.TituloTipoEvento = tipoEventoAtualizado.TituloTipoEvento;
 
-            ctx.TipoEvento.Update(tipoEventoAtualizado);
+            ctx.TipoEvento.Update(tipoEventoBuscado);
 
             ctx.SaveChanges();
 

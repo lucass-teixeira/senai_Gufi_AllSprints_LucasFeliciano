@@ -27,5 +27,34 @@ namespace Senai.Gufi.WebApi.Controllers
         {
             return _tipoEventoRepository.ListarEventos();
         }
+
+        [HttpGet("{id}")]
+        public TipoEvento BuscarEventoPorId(int id)
+        {
+            return _tipoEventoRepository.BuscarPorId(id);
+        }
+
+        [HttpPost]
+        public IActionResult CadastrarTipoEventos(TipoEvento novoTipoEvento)
+        {
+            _tipoEventoRepository.Cadastrar(novoTipoEvento);
+            return StatusCode(201);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizarTipoEventos(int id, TipoEvento tipoEventoAtualizado)
+        {
+            _tipoEventoRepository.Atualizar(id, tipoEventoAtualizado);
+            return StatusCode(200);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            _tipoEventoRepository.Deletar(id);
+
+            return Ok();
+        }
+        
     }
 }
